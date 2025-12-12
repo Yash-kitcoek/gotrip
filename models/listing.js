@@ -5,11 +5,8 @@ const listingSchema = new Schema({
     title: { type: String, required: true },
     description: String,
     image: {
-        filename: { type: String, default: "listingimage" },
-        url: { 
-            type: String, 
-            default: "https://unsplash.com/photos/modern-wooden-buildings-against-a-clear-blue-sky-npTlea_bqls" 
-        }
+       url: String,
+       filename: String,
     },
     price: Number,
     location: String,
