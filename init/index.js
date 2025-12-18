@@ -1,22 +1,18 @@
 // init/index.js
 const mongoose = require("mongoose");
-const initData = require("./data.js");
-const Listing = require("../models/listing.js"); // one folder up
+require("dotenv").config();
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/tripnest";
+const dbUrl = process.env.MONGO_URL;
 
-main()
-  .then(() => console.log("Connected to DB"))
-  .catch((err) => console.log(err));
-
-async function main() {
-  await mongoose.connect(MONGO_URL);
+if (!dbUrl) {
+  throw new Error("MONGO_URL is not defined");
 }
 
-const initDB = async () => {
-  await Listing.deleteMany({});
-  await Listing.insertMany(initData.data);
-  console.log("Data was initialized");
-};
-
-initDB();
+mongoose.connect(dbUrl)
+  .then(() => {
+    console.log("MongoDB connected");
+  })
+  .catch(err => {
+    console.error("MongoDB connection error:", err);
+    process.exit(1);
+  });
