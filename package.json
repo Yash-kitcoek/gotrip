@@ -1,13 +1,13 @@
 {
-  "engines" : {
-    "node" : "22.18.0"
-  },
   "name": "tripnest",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "init/index.js",
+  "engines": {
+    "node": "22.18.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node init/index.js"
   },
   "keywords": [],
   "author": "",
@@ -20,11 +20,9 @@
     "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
     "ejs-mate": "^4.0.0",
-    "express": "^5.1.0",
+    "express": "^4.21.2",
     "express-session": "^1.18.2",
-    "express-sessions": "^1.0.6",
     "joi": "^18.0.1",
-    "mate": "^0.21.0",
     "method-override": "^3.0.0",
     "mongoose": "^8.19.1",
     "multer": "^2.0.2",
